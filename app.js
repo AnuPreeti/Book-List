@@ -1,4 +1,4 @@
-document.body.style.backgroundColor = `rgba(${offsetX},offsetY,0)`;
+document.body.style.backgroundColor = `rgba(${offsetX},${offsety},0)`;
 
 
 //Book constructor
