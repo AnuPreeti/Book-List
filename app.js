@@ -1,5 +1,3 @@
-document.body.style.backgroundColor = `rgba(${offsetX},${offsety},0)`;
-
 
 //Book constructor
 function Book(title,author,isbn){
@@ -41,9 +39,16 @@ container.insertBefore(div,form);
 
 setTimeout(function(){
     document.querySelector('.alert').remove();
-},3000)
+},2500)
+};
+
+//deleting books
+UI.prototype.dltbook = function(target){
+if(target.className === 'delete'){
+    target.parentElement.parentElement.remove();
 }
-//event listener
+}
+//event listener for adding books
 document.getElementById('book-form').addEventListener('submit',function(e){
 e.preventDefault();
 
@@ -70,4 +75,12 @@ ui.clearfields();
 ui.showAlert('Sucessfully added','success');
 
 }
-})
+});
+//event listener delete book 
+document.querySelector('#book-list').addEventListener('click',function(e){
+    const ui=new UI();
+    ui.dltbook(e.target);
+    ui.showAlert('Book removed','success');
+
+    e.preventDefault();
+});
